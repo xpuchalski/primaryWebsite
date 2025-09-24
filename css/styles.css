@@ -10,6 +10,19 @@
     .navbar-y {
         display : none;
     }
+
+    embed {
+        display : none;
+    }
+    
+    img {
+        max-width : 100px;
+        height : 100px;    
+    }
+
+    iframe {
+        display : none;
+    }
 }
 
 .navbar-x {
