@@ -81,8 +81,12 @@ img {
     opacity : 75%;
 }
 
-li:hover{
+.navbar-x > ul > a > li:hover{
     color:coral;
+}
+
+a:hover {
+    color : coral;
 }
 
 img:hover {
