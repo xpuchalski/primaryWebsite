@@ -1,3 +1,4 @@
+/* overall tag modifications */
 * { 
     padding : 0;
     margin: 0;
@@ -6,6 +7,26 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+main{
+    padding-top : 100px;
+    padding-left : 2%;
+    margin : 0 2% 2% 2%;
+    padding-bottom : 2%;
+    border-color : #343434;
+    border-style : solid;
+    border-width : 2px;
+}
+
+#projectMain {
+    padding-top : 100px;
+    padding-bottom : 2%;
+    margin : 0 2% 2% 10%;
+    border-color : #343434;
+    border-style : solid;
+    border-width : 2px;
+}
+
+/* if mobile detected*/
 @media screen and (max-width: 768px) {
     .navbar-y {
         display : none;
@@ -21,10 +42,21 @@
     }
 
     iframe {
-        display : none;
+        width :240px;
+        height : auto;
+    }
+
+    #projectMain {
+        margin : 2%;
+        padding : 2%;
+    } 
+    
+    .navbar-x {
+        top: 0; 
     }
 }
 
+/* navbar tags */
 .navbar-x {
     z-index : 1;
     position : fixed;
@@ -85,6 +117,7 @@
     color : #343434;
 }
 
+/* normal html tags*/
 img {
     padding : 1%;
     height : 30em;
@@ -94,10 +127,24 @@ img {
     opacity : 75%;
 }
 
-.navbar-x > ul > a > li:hover{
-    color:coral;
+embed {
+    background-color: #CFC8C2;
+    margin-left: 5%;
+    margin : 2% 0;
 }
 
+p {
+    padding : 2% 2%;
+    max-width: 70%;
+}
+
+hr {
+    padding: 0 !important;
+    margin : 2%;
+    max-width : 70%;
+}
+
+/* hover elements */
 a:hover {
     color : coral;
 }
@@ -122,39 +169,7 @@ main:hover {
     border-color : coral;
 }
 
-embed {
-    background-color: #CFC8C2;
-    margin-left: 5%;
-    margin : 2% 0;
-}
-
-main{
-    padding-top : 100px;
-    padding-left : 2%;
-    margin : 0 2% 2% 2%;
-    padding-bottom : 2%;
-    border-color : #343434;
-    border-style : solid;
-    border-width : 2px;
-}
-
-#projectMain {
-    padding-top : 100px;
-    padding-bottom : 2%;
-    margin : 0 2% 2% 10%;
-    border-color : #343434;
-    border-style : solid;
-    border-width : 2px;
-}
-
-p {
-    padding : 2% 2%;
-    max-width: 70%;
-}
-
-hr {
-    padding: 0 !important;
-    margin : 2%;
-    max-width : 70%;
+.navbar-x > ul > a > li:hover{
+    color:coral;
 }
 
