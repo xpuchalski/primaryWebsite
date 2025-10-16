@@ -101,6 +101,25 @@ main{
     border-width : 2px;
 }
 
+.scroll-nav {
+    
+}
+
+.scroll-nav > ul {
+    margin : 1%;
+    list-style-type: none;
+    border-color : #343434;
+    border-style : solid;
+    border-width : 2px;
+    overflow-x : auto;
+    white-space : nowrap;
+}
+
+.scroll-nav > ul > li {
+    display : inline-block;
+    padding : 1% 1%;
+}
+
 .active {
     background-color : coral;
 }
@@ -171,5 +190,9 @@ main:hover {
 
 .navbar-x > ul > a > li:hover{
     color:coral;
+}
+
+.scroll-nav > ul:hover{
+    border-color:coral;
 }
 

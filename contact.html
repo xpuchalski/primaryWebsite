@@ -11,6 +11,14 @@
 </head>
 
 <body>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event){
+            event.preventDefault();
+            var user = document.getElementById('email').value;
+            alert(user);
+        });
+    </script>
+
     <header>
         <div class="navbar-x">
             <ul>
@@ -22,8 +30,13 @@
             </ul>
         </div>
     </header>
+
     <main>
-        
+        <form id="myForm">
+            <label for="username">email:</label>
+            <input type="text" id="email" name="email">
+            <button type="submit">Submit</button>
+        </form>
     </main>
 </body>
 
