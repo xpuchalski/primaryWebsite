@@ -2,11 +2,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>services</title>
+    <title>index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
-    <meta name="description" content="this is the services page">
+    <meta name="description" content="this is the index page">
     <meta name="keywords" content="index, content, services, projects">
 </head>
 
@@ -23,10 +23,94 @@
         </div>
     </header>
     <main>
-        
+        <p style="float:right; max-width:400px;">tips : <br> - hex codes are broken up in 4 parts, # rr gg bb <br> - for each pair of values (rr for example) the first bit is 16*1*number(0-f) the second bit is 16*0*num(0-f) <br> - gray colors are denoted by having all 3 values close or the same value <br> - if you know decimal rgb values (0-255), you can think of hexidecimal the same way <br> - red = #ff0000, green = #00ff00, blue is #0000ff <br> - lighter colors have higher values (closer to f) while darker have lower (closer to 0)</p>
+
+        <h2>how good are you at guessing hex values?</h2>
+
+        <p>try to make sure your guess starts with '#'</p>
+
+        <img id="colorBox" style="background-color: rgb(186, 243, 195);">
+
+        <div>
+        <input type="text" id="userInput" placeholder="#FFFFFF" maxlength="7">
+        <button onclick="compareColors()">Compare</button>
+        <button onclick="generateNewColor()">New Color</button>
+        <button onclick="showColor()">reveal</button>
+        </div>
+
+        <p id="result">your score is NaN%</p>
+        <p id="banter">give me a try</p>
+        <p id="veronicaresult"></p>
+        <p id="reveal"></p>
+
+        <script>
+            let currentColor = "";
+
+            // Function to generate random color and display it
+            function generateNewColor() {
+                currentColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                document.getElementById("colorBox").style.backgroundColor = currentColor;
+                }
+
+                // Convert a hex string to a number
+                function hexToInt(hex) {
+                return parseInt(hex.replace('#', ''), 16);
+            }
+
+            // Compare two hex values and return the absolute numeric difference
+            function compareColors() {
+                let userHex = document.getElementById("userInput").value.trim();
+
+                // Normalize the input (ensure it starts with #)
+                let formattedUserHex = userHex.startsWith('#') ? userHex : '#' + userHex;
+
+                // Convert to integer values
+                let colorInt = hexToInt(currentColor);
+                let userInt = hexToInt(formattedUserHex);
+
+                // Calculate absolute difference
+                let diff = Math.abs(colorInt - userInt);
+                let score = 100-((diff / (255*255*255))*100);
+
+                document.getElementById("result").textContent = 
+                `your score is ${score.toFixed(3)}%`;
+
+                document.getElementById("veronicaresult").textContent = 
+                `Difference: ${diff.toLocaleString()} ; your guess : ${formattedUserHex} ; ${diff}`;
+
+                if (score <= 10) {
+                    document.getElementById("banter").textContent = `you're so trash i dont even have a comment`;
+                } else if (score <= 20 && score > 10) {
+                    document.getElementById("banter").textContent = `bring your colorblind pet over here I'm sure they would do better`;
+                } else if (score <= 30 && score > 20) {
+                    document.getElementById("banter").textContent = `i guess everyone has to start somewhere`;
+                } else if (score <= 40 && score > 30) {
+                    document.getElementById("banter").textContent = `you're about as good as a chimp on a keyboard`;
+                } else if (score <= 50 && score > 40) {
+                    document.getElementById("banter").textContent = `now we're talking. a human score`;
+                } else if (score <= 60 && score > 50) {
+                    document.getElementById("banter").textContent = `you're amazing!`;
+                } else if (score <= 70 && score > 60) {
+                    document.getElementById("banter").textContent = `alright, hobbiest artist over here`;
+                } else if (score <= 80 && score > 70) {
+                    document.getElementById("banter").textContent = `you're a pro artist`;
+                } else if (score <= 90 && score > 80) {
+                    document.getElementById("banter").textContent = `you're the kind of person to say 'graphic design is my passion'`;
+                } else {
+                    document.getElementById("banter").textContent = `you may be some form of god`;
+                }
+            }
+
+            function showColor() {
+                document.getElementById("reveal").textContent = `real color : ${currentColor}`;
+            }
+
+            generateNewColor();
+        </script>
     </main>
-</body>
+
 
 <footer>
 
 </footer>
+</body></html>
