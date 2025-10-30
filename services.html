@@ -43,6 +43,8 @@
         <p id="veronicaresult"></p>
         <p id="reveal"></p>
 
+        <img id="userColor" style="opacity:100;">
+
         <script>
             let currentColor = "";
 
@@ -76,7 +78,7 @@
                 `your score is ${score.toFixed(3)}%`;
 
                 document.getElementById("veronicaresult").textContent = 
-                `Difference: ${diff.toLocaleString()} ; your guess : ${formattedUserHex} ; ${diff}`;
+                `Difference: ${diff.toLocaleString()} ; your guess : ${formattedUserHex}`;
 
                 if (score <= 10) {
                     document.getElementById("banter").textContent = `you're so trash i dont even have a comment`;
@@ -99,6 +101,8 @@
                 } else {
                     document.getElementById("banter").textContent = `you may be some form of god`;
                 }
+
+                document.getElementById("userColor").style.backgroundColor = userHex;
             }
 
             function showColor() {
